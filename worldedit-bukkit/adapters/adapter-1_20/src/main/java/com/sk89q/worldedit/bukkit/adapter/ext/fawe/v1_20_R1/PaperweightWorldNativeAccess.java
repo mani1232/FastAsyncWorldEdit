@@ -46,13 +46,11 @@ public class PaperweightWorldNativeAccess implements WorldNativeAccess<LevelChun
 
     private final PaperweightAdapter adapter;
     private final WeakReference<ServerLevel> world;
-    private final AtomicInteger lastTick;
     private SideEffectSet sideEffectSet;
 
     public PaperweightWorldNativeAccess(PaperweightAdapter adapter, WeakReference<ServerLevel> world) {
         this.adapter = adapter;
         this.world = world;
-        this.lastTick = new AtomicInteger(0);
     }
 
     private ServerLevel getWorld() {
