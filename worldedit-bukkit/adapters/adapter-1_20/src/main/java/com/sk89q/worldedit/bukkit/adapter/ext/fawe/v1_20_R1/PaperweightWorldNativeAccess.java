@@ -37,6 +37,7 @@ import org.bukkit.event.block.BlockPhysicsEvent;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.Nullable;
 
 public class PaperweightWorldNativeAccess implements WorldNativeAccess<LevelChunk, net.minecraft.world.level.block.state.BlockState, BlockPos> {
@@ -45,11 +46,13 @@ public class PaperweightWorldNativeAccess implements WorldNativeAccess<LevelChun
 
     private final PaperweightAdapter adapter;
     private final WeakReference<ServerLevel> world;
+    private final AtomicInteger lastTick;
     private SideEffectSet sideEffectSet;
 
     public PaperweightWorldNativeAccess(PaperweightAdapter adapter, WeakReference<ServerLevel> world) {
         this.adapter = adapter;
         this.world = world;
+        this.lastTick = new AtomicInteger(0);
     }
 
     private ServerLevel getWorld() {
