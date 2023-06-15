@@ -92,7 +92,7 @@ public class Fawe {
      * The platform specific implementation.
      */
     private final IFawe implementation;
-    private final KeyQueuedExecutorService<UUID> clipboardExecutor;
+    private KeyQueuedExecutorService<UUID> clipboardExecutor;
     private FaweVersion version;
     private TextureUtil textures;
     private QueueHandler queueHandler;
